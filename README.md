@@ -20,7 +20,7 @@ Just add lines int the end of config.txt
 Setup ESP-IDF
 -
 ESPRESSIF has good enough documentation. Just follow the instructions: [Standard Toolchain Setup for Linux and macOS](https://docs.espressif.com/projects/esp-idf/en/v5.1.1/esp32/get-started/linux-macos-setup.html).
-The only recommenation: do not add permanently exporting envorionment by adding the next line to your `.bashrc`.
+The only recommenation: do not add permanently exporting envorionment by adding it into your `.bashrc`.
 Instead, add alias:
 
 	alias get_idf=". $HOME/esp/esp-idf/export.sh ; PS1=\"(ESP-IDF)$PS1\""
@@ -31,7 +31,7 @@ Thanks to Uri Shaked, we easely can use his instructions to setup jtag debug by 
 [ESP32 JTAG Debugging using Raspberry Pi](https://blog.wokwi.com/gdb-debugging-esp32-using-raspberry-pi/).
 
 Notes:
-- using `bcm2835gpio_jtag_nums 11 25 10 9` is depricated, instead use:
+- using `bcm2835gpio_jtag_nums 11 25 10 9` is deprecated, instead use:
 	- `adapter gpio tck 11`
 	- `adapter gpio tms 8`
 	- `adapter gpio tdi 10`
@@ -40,6 +40,6 @@ Notes:
 
 ![RaspberryPi pinout](RPiGPIO.PNG)
 
-- `adapter_khz` is depricated, use `adapter speed`
+- `adapter_khz` is deprecated, use `adapter speed`
 - better to not install openocd globally
 
