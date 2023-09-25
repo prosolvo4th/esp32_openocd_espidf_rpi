@@ -42,4 +42,6 @@ Notes:
 
 - `adapter_khz` is deprecated, use `adapter speed`
 - better to not install openocd globally
+- in case you fail to halt the target via the openocd, here is a workaround:
+	- `. $HOME/esp/esp-idf/export.sh ; esptool.py --port=/dev/ttyUSB0 --chip esp32 erase_flash ; sudo OPENOCD_SCRIPTS=$path/tcl $path/src/openocd -f interface/raspberrypi2-native.cfg -f target/esp32.cfg -c "adapter speed 1000" -c 'program_esp <path_to>/bootloader.bin 0x1000 verify' -c 'program_esp <path_to>/<your_target_firmware>.bin 0x10000 verify' -c 'program_esp <path_to>/partition-table.bin 0x8000 verify' `
 
