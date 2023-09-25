@@ -1,17 +1,17 @@
 ESP32, ESP-IDF, RaspberryPi and OpenOCD
 =
 
-This instruction based on info found in free access in web and describes
-setting-up dev and debug setup on RaspberryPi 3B using ESP-IDF, OpenOCD and RaspberryPi GPIOS as debug interfaces. 
+This instruction is based on info found in free access on web and describes
+setting up dev and debug setup on RaspberryPi 3B using ESP-IDF, OpenOCD, and RaspberryPi GPIOS as debug interfaces. 
 
 Setup RaspberryPi OS (64-bit)
 -
-Nothing special, just flash micro SD card and insert it in your RaspberryPi.
-It is useful to use RaspberryPi Imager, which allow preset new user, enable sshd by default and setup WIFI.
+Nothing special, just flash a micro SD card and insert it in your Raspberry Pi.
+It is useful to use RaspberryPi Imager, which allows preset new user, enable sshd by default and setup WIFI.
 
 ![RaspberryPiImager settings](RaspberryPiImager.PNG "")
 
-It is also might be handy to enable USART as fallback method to connect.
+It also might be handy to enable USART as a fallback method to connect.
 Just add lines int the end of config.txt
 
 	# Enable UART
@@ -20,14 +20,14 @@ Just add lines int the end of config.txt
 Setup ESP-IDF
 -
 ESPRESSIF has good enough documentation. Just follow the instructions: [Standard Toolchain Setup for Linux and macOS](https://docs.espressif.com/projects/esp-idf/en/v5.1.1/esp32/get-started/linux-macos-setup.html).
-The only recommenation: do not add permanently exporting envorionment by adding it into your `.bashrc`.
+The only recommendation: do not add permanently exporting environment by adding it into your `.bashrc`.
 Instead, add alias:
 
 	alias get_idf=". $HOME/esp/esp-idf/export.sh ; PS1=\"(ESP-IDF)$PS1\""
 
 Setup OpenOCD
 -
-Thanks to Uri Shaked, we easely can use his instructions to setup jtag debug by bare pins on RaspberryPi.
+Thanks to Uri Shaked, we easily can use his instructions to setup jtag debug by bare pins on RaspberryPi.
 [ESP32 JTAG Debugging using Raspberry Pi](https://blog.wokwi.com/gdb-debugging-esp32-using-raspberry-pi/).
 
 Notes:
@@ -36,7 +36,7 @@ Notes:
 	- `adapter gpio tms 8`
 	- `adapter gpio tdi 10`
 	- `adapter gpio tdo 9`
-- due to change `tms` from `25` to `8`, wiring will be slightly different. Check pinout.
+- due to changing `tms` from `25` to `8`, wiring will be slightly different. Check pinout.
 
 ![RaspberryPi pinout](RPiGPIO.PNG)
 
